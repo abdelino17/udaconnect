@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: locations-rest
+  name: locations-rest
+  namespace: udaconnect
+spec:
+  ports:
+    - name: '5000'
+      port: 5000
+      targetPort: 5000
+      nodePort: 30001
+  selector:
+    service: locations-rest
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: locations-rest
+  name: locations-rest
+  namespace: udaconnect
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: locations-rest
+  template:
+    metadata:
+      labels:
+        service: locations-rest
+    spec:
+      containers:
+        - image: abdelino/udaconnect-locations-rest:latest
+          name: locations-rest
+          imagePullPolicy: Always
+          env:
+            - name: KAFKA_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-env
+                  key: KAFKA_BROKER
+            - name: KAFKA_TOPIC
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-env
+                  key: KAFKA_TOPIC
+      restartPolicy: Always

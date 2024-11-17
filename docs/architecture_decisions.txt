@@ -1,0 +1,13 @@
+After evaluating the project requirements and scalability needs, I recommend transitioning from the monolithic application to a microservices-based architecture.  
+
+1. **locations-api**  
+This service provides REST APIs for mobile devices. It enables users to send location data over the HTTP protocol in JSON format. REST was chosen for its widespread adoption and compatibility.  
+
+2. **locations-grpc**  
+Similar to `locations-api`, this service uses gRPC instead of REST. gRPC offers advanced features like message validation, HTTP/2 support, streaming, and efficient binary data handling, making it suitable for mobile applications that demand high throughput. Both services will publish location data to a Kafka topic for further processing.  
+
+3. **locations-worker**  
+This service acts as a bridge between data publication and processing, consuming messages from the Kafka topic and writing them to a PostgreSQL database. Kafka serves as the messaging backbone, ensuring asynchronous handling of location creation requests.  
+
+4. **persons-api**  
+This service will function as the primary entry point for the frontend application, consolidating data and providing relevant endpoints for user interactions.  

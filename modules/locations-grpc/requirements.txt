@@ -1,0 +1,9 @@
+grpcio==1.68.0
+grpcio-reflection==1.68.0
+grpcio-tools==1.68.0
+kafka-python==2.0.2
+marshmallow==3.23.1
+packaging==24.2
+protobuf==5.28.3
+setuptools==75.5.0
+six==1.16.0

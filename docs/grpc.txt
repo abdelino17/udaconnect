@@ -1,0 +1,11 @@
+The service locations-grpc enables to create a new location.
+
+I prepared a script named "client.py" that can be run to test your server.
+
+1. Deploy all the kubernetes resources in the deployment folder.
+
+2. Install the python dependencies
+
+3. Run the command: `python client.py`.
+
+4. Go to the GET API - 'http://localhost:30002/api/locations' to see the newly data.

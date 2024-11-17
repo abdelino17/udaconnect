@@ -1,0 +1,37 @@
+{
+  "swagger": "2.0",
+  "basePath": "/",
+  "paths": {
+    "/api/locations": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "post_location_resource",
+        "tags": ["LocationsRest"]
+      }
+    }
+  },
+  "info": {
+    "title": "Locations-Rest API",
+    "version": "1.0.0"
+  },
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
+  "tags": [
+    {
+      "name": "LocationsRest",
+      "description": "Locations REST API for mobile devices."
+    }
+  ],
+  "responses": {
+    "ParseError": {
+      "description": "When a mask can't be parsed"
+    },
+    "MaskError": {
+      "description": "When any error occurs on mask"
+    }
+  }
+}
