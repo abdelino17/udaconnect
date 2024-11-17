@@ -100,7 +100,7 @@ Afterwards, you can test that `kubectl` works by running a command like `kubectl
 4. `kubectl apply -f deployment/postgres.yaml` - Set up a Postgres database running PostGIS
 5. `kubectl apply -f deployment/postgres.yaml` - Set up a Kafka broker
 6. `kubectl apply -f deployment/locations-rest.yaml` - Set up the locations service exposing a REST API.
-7. `kubectl apply -f deployment/locations-grpc.yaml` - Set up the locations service exposing a REST endpoint for gathering locations data.
+7. `kubectl apply -f deployment/locations-grpc.yaml` - Set up the locations service exposing a REST endpoint for ingesting locations data.
 8. `kubectl apply -f deployment/locations-worker.yaml` - Set up the locations worker that pulls kafka messages and inserts them into Postgres Database.
 9. `kubectl apply -f deployment/persons-api.yaml` - Set up the persons API for the frontend web app.
 10. `kubectl apply -f deployment/frontend.yaml` - Set up the web app service.
